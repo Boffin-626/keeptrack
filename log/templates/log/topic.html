@@ -5,7 +5,7 @@
   
   <p>Entries</p>
   <p>
-    <a href="{% url 'log:new_entry' %}">Add new entry</a>
+    <a href="{% url 'log:new_entry' topic.id %}">Add new entry</a>
   </p>
   <ul>
     {% for entry in entries %}

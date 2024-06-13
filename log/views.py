@@ -35,16 +35,15 @@ def new_entry(request, topic_id):
     topic = Topic.objects.get(id=topic_id)
  
     if request.method != 'POST':
-    # No data submitted; create a blank form.
+        #create a blank form.
         form = EntryForm()
     else:
-    # POST data submitted; process data.
         form = EntryForm(data=request.POST)
         if form.is_valid():
             new_entry = form.save(commit=False)
             new_entry.topic = topic
             new_entry.save()
-            return redirect('log:topic', topic_id=topic_id)
-    # Display a blank or invalid form.
+            return redirect('log:new_entry', topic_id=topic_id)
+        
     context = {'topic': topic, 'form': form}
     return render(request, 'log/new_entry.html', context)
