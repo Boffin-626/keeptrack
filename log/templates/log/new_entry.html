@@ -1,0 +1,14 @@
+{% extends 'log/base.html' %} 
+
+{% block page_content %}
+
+    <p><a href="{% url 'log:topic' topic.id }">{{ topic }}</a></p>
+
+    <p>Add new entry:</p>
+    <form action="{% url 'log:new_entry' topic.id %}" method='post'>
+        {% csrf_token %}
+        {{ form.as_p }} 
+        <button name='submit'>Add Entry</button>
+    </form>
+
+{% endblock page_content %}

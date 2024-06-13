@@ -1,0 +1,21 @@
+{% extends 'log/base.html' %}
+
+{% block page_content %}
+  <p>Topic: {{ topic }}</p>
+  
+  <p>Entries</p>
+  <p>
+    <a href="{% url 'log:new_entry' topic_id %}">Add new entry</a>
+  </p>
+  <ul>
+    {% for entry in entries %}
+        <li>
+            <p>{{ entry.date_added | date:'M d, Y H:i' }}</p>
+            <p>{{ entry.text | linebreaks }}</p>
+        </li>
+    {% empty %}
+        <li>No entries yet</li>
+    {% endfor %}
+  </ul>
+
+{% endblock page_content %}
