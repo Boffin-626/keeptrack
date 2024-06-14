@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Topic 
-from .forms import TopicForm, EntryForm   
+from .forms import TopicForm, EntryForm, Entry   
 
 def index(request):
     return render(request, 'log/index.html')
