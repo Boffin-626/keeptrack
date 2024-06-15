@@ -21,7 +21,8 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [ 
     #My Apps
-    'log',
+    'log',  
+    'users',
     
     #Default Django Apps
     'django.contrib.admin',
@@ -30,6 +31,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    #Third Party Apps
+    
 ]
 
 MIDDLEWARE = [
