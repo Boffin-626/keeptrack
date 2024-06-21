@@ -7,6 +7,7 @@ from .forms import TopicForm, EntryForm, Entry
 def index(request):
     return render(request, 'log/index.html')
 
+@login_required
 def topics(request): 
     topics = Topic.objects.order_by('date_added')
     context = {'topics': topics}
