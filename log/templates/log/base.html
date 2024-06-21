@@ -1,6 +1,13 @@
 <p>
     <a href="{% url 'log:index' %}"> Learning Log </a> -
     <a href="{% url 'log:topics' %}"> Topics </a>
+    <br>
+    {% if user.is_authenticated %}
+        Hello, {{ user.username }}
+        <a href="{% url 'users:logout' %}"> Log Out </a>
+    {% else %}
+        <a href="{% url 'users:login' %}"> Log In </a>
+    {% endif %}
 </p>
 
 {% block page_content %} 
