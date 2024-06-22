@@ -13,12 +13,14 @@ def topics(request):
     context = {'topics': topics}
     return render(request, 'log/topics.html', context)
 
+@login_required
 def topic(request, topic_id):
     topic = Topic.objects.get(id=topic_id)
     entries = topic.entry_set.order_by('-date_added')
     context = {'topic': topic, 'entries': entries}
     return render(request, 'log/topic.html', context) 
 
+@login_required
 def new_topic(request):
     #adding a new topic 
     if request.method != 'POST':
@@ -33,7 +35,7 @@ def new_topic(request):
     context = {'form': form}
     return render(request, 'log/new_topic.html', context)
         
-        
+@login_required    
 def new_entry(request, topic_id):
     topic = Topic.objects.get(id=topic_id)
  
@@ -51,6 +53,7 @@ def new_entry(request, topic_id):
     context = {'topic': topic, 'form': form}
     return render(request, 'log/new_entry.html', context)
 
+@login_required
 def edit_entry(request, entry_id):
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic 
