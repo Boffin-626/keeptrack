@@ -1,16 +1,22 @@
 {% extends 'log/base.html' %}
 
+{% block page_header %}
+    <h1>Topics</h1>
+{% endblock page_header %}
+
 {% block page_content %}
 
     <p>Topics</p>
 
     <ol type="i">
         {% for topic in topics %}
-            <li><a href="{% url 'log:topic' topic.id %}" >{{ topic }}</a></li>
+            <li><h3>
+                <a href="{% url 'log:topic' topic.id %}" >{{ topic }}</a></h3>
+            </li>
                 {% empty %}
-                    <li>No topics added yet</li>
+                    <li><h3>No topics added yet.</h3></li>
         {% endfor %}
     </ol>
-    <a href="{% url 'log:new_topic' %}">Add a new topic</a>
+    <h3><a href="{% url 'log:new_topic' %}">Add a new topic</a></h3>
 
 {% endblock page_content %}
