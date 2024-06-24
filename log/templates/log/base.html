@@ -12,7 +12,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
-            <a class="navbar-brand" href="{% url 'learning_logs:index'%}">
+            <a class="navbar-brand" href="{% url 'log:index'%}">
             Learning Log</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -37,14 +37,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'users:logout' %}">Log out</a>
                     </li>
-                     {% else %}
+                    {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'users:register' %}">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'users:login' %}">Log in</a>
                     </li>
-                     {% endif %}
+                    {% endif %}
                 </ul>
             </div>
         </nav>

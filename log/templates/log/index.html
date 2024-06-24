@@ -1,6 +1,17 @@
 {% extends 'log/base.html' %} 
 
-{% block page_content %}
+{% block page_header %} 
+    <div class="jumbotron">
+        <h2 class="display-3">Track your activity</h2>
 
-{% endblock page_content %}
+        <p class="lead">
+            Keep track of learning. 
+            Make entries to summarize what you have learnt.
+        </p>
+        <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}" 
+            role="button">Register &raquo;
+        </a>
+    </div>
+
+{% endblock page_header %}
 
